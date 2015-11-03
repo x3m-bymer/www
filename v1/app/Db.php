@@ -7,8 +7,6 @@
  */
 namespace App;
 
-use PSX\Exception;
-
 class Db{
     protected static $_instance;
 
@@ -98,12 +96,12 @@ class Db{
     private function __clone(){}
 
     public static function getInstance() {
-        // проверяем актуальность экземпляра
+        // РїСЂРѕРІРµСЂСЏРµРј Р°РєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ СЌРєР·РµРјРїР»СЏСЂР°
         if (null === self::$_instance) {
-            // создаем новый экземпляр
+            // СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ СЌРєР·РµРјРїР»СЏСЂ
             self::$_instance = new self();
         }
-        // возвращаем созданный или существующий экземпляр
+        // РІРѕР·РІСЂР°С‰Р°РµРј СЃРѕР·РґР°РЅРЅС‹Р№ РёР»Рё СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ СЌРєР·РµРјРїР»СЏСЂ
         return self::$_instance;
     }
 
