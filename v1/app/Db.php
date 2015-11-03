@@ -5,6 +5,7 @@
  * Date: 31.10.2015
  * Time: 13:55
  */
+
 namespace App;
 
 class Db{
@@ -111,7 +112,9 @@ class Db{
         $sql = array_shift($args);
 
         try{
-            $this->_query = $this->_db->query($sql);
+            if (!empty($this->_query)) {
+                $this->_query = $this->_db->query($sql);
+            }
         }catch (\Exception $e){
             throw new \Exception($e->getMessage());
         }
