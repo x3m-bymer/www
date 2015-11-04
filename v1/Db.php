@@ -14,20 +14,19 @@ class Db{
     private $_db;
     private $_query;
 
-    static $db_host = 'localhost1';
-    static $db_name = 'test';
-    static $db_user = 'root';
-    static $user_pw = '';
+    private $db_host = 'localhost';
+    private $db_name = 'kurilov';
+    private $db_user = 'root';
+    private $user_pw = '';
 
-    private function __construct(){
+    public function __construct(){
         try{
-            $this->_db = new \PDO('mysql:host='.self::getDbHost().'; dbname='.self::getDbName(), self::getDbUser(), self::getUserPw());
+            $this->_db = new \PDO('mysql:host='.$this->db_host.'; dbname='.$this->db_name, $this->db_user, $this->user_pw);
             $this->_db->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
             $this->_db->exec("SET CHARACTER SET utf8");
         } catch(\Exception $e){
             throw new \Exception('Error connect to database');
         }
-
     }
 
     /**
@@ -112,9 +111,7 @@ class Db{
         $sql = array_shift($args);
 
         try{
-            if (!empty($this->_query)) {
-                $this->_query = $this->_db->query($sql);
-            }
+            $this->_query = $this->_db->query($sql);
         }catch (\Exception $e){
             throw new \Exception($e->getMessage());
         }
@@ -123,7 +120,6 @@ class Db{
         if($this->_query === false){
             return false;
         }
-
         return $this->_query->fetch(\PDO::FETCH_ASSOC);
     }
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/v1/.htaccess" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/AD.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/Db.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/Db.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/Helper.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/Session.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/UserLDAP.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/App.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/Log.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/LogWriter.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/Request.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/Response.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/app/Route.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/v1/log.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/.htaccess" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/AD.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/Base.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/Db.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/Helper.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/RestClient.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/UserLDAP.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/app/CtrlIndex.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/tpl/login.tpl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/tpl/success.tpl" charset="UTF-8" />
+  </component>
+</project>

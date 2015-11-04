@@ -22,6 +22,8 @@ class App{
     private $_route;
     private $_config;
 
+    static $data = array();
+
     function __construct(){
         set_error_handler(array($this, 'ErrorCatcher'));
         $this->_config = $this->getDefaultSettings();
@@ -101,7 +103,7 @@ class App{
                 call_user_func_array($route->getCallback(), $params);
                 $this->_logger->info('request');
             } catch (\Exception $e){
-                $this->_response->write('Server Error '.$e->getMessage(), 500);
+                $this->_response->write($e->getMessage(), 500);
                 $this->_logger->fatal($e->getMessage());
             }
         }
@@ -129,20 +131,20 @@ class App{
 
     function ErrorCatcher($err_no, $err_str){
         $error_type = array (
-            1   =>  "Ошибка",
-            2   =>  "Предупреждение",
-            4   =>  "Ошибка синтаксического анализа",
-            8   =>  "Замечание",
-            16  =>  "Ошибка ядра",
-            32  =>  "Предупреждение ядра",
-            64  =>  "Ошибка компиляции",
-            128 =>  "Предупреждение компиляции",
-            256 =>  "Ошибка пользователя",
-            512 =>  "Предупреждение пользователя",
-            1024=>  "Замечание пользователя"
+            1   =>  "Error",
+            2   =>  "Notice",
+            4   =>  "Parse error",
+            8   =>  "Remark",
+            16  =>  "Error kernel",
+            32  =>  "Warning core",
+            64  =>  "compile error",
+            128 =>  "Warning compilation",
+            256 =>  "user error",
+            512 =>  "Warning user",
+            1024=>  "Note user"
         );
 
-        throw new \Exception ($error_type[$err_no] . ":" .$err_str);
+        throw new \Exception ("***" .$error_type[$err_no]. "*** " .$err_str);
     }
 
     /**
@@ -161,5 +163,44 @@ class App{
         return $this->_response;
     }
 
+    /**
+     * Добавляет значение в реестр
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return void
+     */
+    public static function setItem($key, $value)
+    {
+        if(isset(self::$data[$key])){
+            #Если уже есть игнорируем
+        } else {
+            self::$data[$key] = $value;
+        }
+    }
+
+    /**
+     * Возвращает значение из реестра по ключу
+     *
+     * @param string $key
+     * @return mixed
+     */
+    public static function getItem($key)
+    {
+        return isset(self::$data[$key]) ? self::$data[$key] : null;
+    }
+
+    /**
+     * Удаляет значение из реестра по ключу
+     *
+     * @param string $key
+     * @return void
+     */
+    final public static function removeProduct($key)
+    {
+        if (array_key_exists($key, self::$data)) {
+            unset(self::$data[$key]);
+        }
+    }
 
 }
